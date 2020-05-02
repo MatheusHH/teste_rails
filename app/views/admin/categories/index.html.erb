@@ -1,0 +1,38 @@
+<div class="category shadow p-3 mb-5">
+  <div class="card-header">Categorias </div>  
+  <div class="category-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Tags</th>
+            <th>Visible</th>
+            <th>#</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @categories.each do |category| %>
+            <tr>
+              <td><%= image_tag category.image.variant(resize: "100x100") if category.image.attached? %></td>
+              <td><%= category.name %></td>
+              <td><%= category.tags %></td>
+              <td><%= category.visible %></td>
+              <td><%= link_to edit_admin_category_path(category), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %>
+              <%= link_to admin_category_path(category), class: "btn btn-success btn-circle" do %><i class="fa fa-eye"></i><% end %>
+              <%= link_to admin_category_path(category), method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do  %> <i class="fa fa-trash"></i> <% end %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+    <div class="card-footer">
+      <%= link_to "Nova Categoria", new_admin_category_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,62 @@
+<div class="card shadow p-3 mb-5"> 
+  <div class="card-body">
+    <%= form_with(model: [:admin, category], local: true) do |form| %>
+      <% if category.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+          <ul>
+          <% category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="form-group">
+          <div class="col-lg-9">
+            <%= form.label :image %>
+            <%= form.file_field :image, class: "form-control" %>
+          </div>
+          <div class="col-lg-3">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.label :name %>
+            <%= form.text_field :name, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.label :tags %>
+            <%= form.text_field :tags, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.label :visible %>
+            <%= form.select :visible, Category.visibles.keys.to_a, {}, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="actions">
+        <%= form.submit "Salvar", class: "btn btn-primary" %>
+        <%= link_to "Voltar", admin_categories_path, class: "btn btn-success" %>
+      </div> 
+    <% end %>
+  </div>
+</div>
+
