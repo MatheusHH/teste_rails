@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     root 'home#index'
 
     resources :categories
+    resources :companies
   end
   # root seria necessário criar uma página para receber o tipo de user e redirecionar
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

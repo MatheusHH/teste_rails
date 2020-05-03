@@ -1,0 +1,56 @@
+<div class="card shadow p-3 mb-5">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-lg-6">
+        <h4>Categorias</h4> 
+      </div>
+      <div class="col-lg-6 pull-right">
+        <%= search_form_for @q, url: admin_companies_path, html: { method: :get } do |c| %>
+          <div class="input-group mb-3">
+            <%= c.search_field :name_or_fantasy_name_or_email_cont, class: "form-control", placeholder: "Nome, Nome fantasia, email..." %>
+            <span class="input-group-prepend">
+              <%= button_tag type: 'submit', class: "btn btn-success" do %>
+              <i class="fa fa-search"></i>
+              <% end %>
+            </span>
+          </div>
+        <% end %> 
+      </div>
+    </div>
+  </div> 
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Fantasy Name</th>
+            <th>Email</th>
+            <th>#</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @companies.each do |company| %>
+            <tr>
+              <td><%= image_tag company.logo.variant(resize: "100x100") if company.logo.attached? %></td>
+              <td><%= company.name %></td>
+              <td><%= company.fantasy_name %></td>
+              <td><%= company.email %></td>
+              <td><%= link_to edit_admin_company_path(company), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %>
+              <%= link_to admin_company_path(company), class: "btn btn-success btn-circle" do %><i class="fa fa-eye"></i><% end %>
+              <%= link_to admin_company_path(company), method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do  %> <i class="fa fa-trash"></i> <% end %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+    <div class="card-footer">
+      <%= link_to "Nova Compania", new_admin_company_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+
+</div>

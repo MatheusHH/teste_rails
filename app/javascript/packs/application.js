@@ -11,6 +11,7 @@ require('jquery')
 require("packs/sbadmin2")
 require("packs/mobile")
 require("packs/jquery-easing")
+require("packs/multiselect")
 
 import "bootstrap";
 import "./stylesheets/application.scss";

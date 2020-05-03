@@ -19,7 +19,6 @@ class Admin::CategoriesController < ApplicationController
   def create
   	@category = Category.new(category_params)
     @category.user = current_user
-    @product.image.attach(params[:image])
     respond_to do |format|
       if @category.save
         format.html { redirect_to admin_categories_url, notice: 'Categoria Criada com Sucesso' }
@@ -46,7 +45,7 @@ class Admin::CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to admin_categories_url, notice: t('flash.actions.destroy.notice') }
+      format.html { redirect_to admin_categories_url, notice: 'Categoria deletada com sucesso' }
       format.json { head :no_content }
     end
   end
@@ -59,6 +58,6 @@ class Admin::CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:image, :name, :tags, :visible, :user_id)
+      params.require(:category).permit(:image, :name, :tags, :visible, :user_id )
     end
 end

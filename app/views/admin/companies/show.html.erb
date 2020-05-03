@@ -1,0 +1,34 @@
+<div class="card shadow p-3 mb-5">
+  <div class="card-header">Compania </div>
+  <div class="card-body">
+    <p>
+      <strong>Nome:</strong>
+      <%= @company.name %>
+    </p>
+
+    <p>
+      <strong>Nome Fantasia</strong>
+      <%= @company.fantasy_name %>
+    </p>
+
+    <p>
+      <strong>Logo:</strong>
+      <br>
+      <%= image_tag @company.logo.variant(resize: "300x300") if @company.logo.attached? %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @company.email %>
+    </p>
+    
+    <div class="card-footer">
+    <div class="actions">
+      <%= link_to admin_companies_path, class: "btn btn-info btn-icon-split btn-sm" do %>
+          <i class="fas fa-backward"></i>
+          <span class="text"> Voltar</span>
+        <% end %>
+    </div>
+    </div>
+  </div>
+</div> 
