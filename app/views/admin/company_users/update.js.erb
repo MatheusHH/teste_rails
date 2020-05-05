@@ -1,0 +1,15 @@
+$(function () {   
+  <% if @company_user.errors.any? %>
+    <% @company_user.errors.full_messages.each do |message| %>
+      $.notify("<%= message %>", "error");
+    <% end %> 
+  <% else %>
+    $.notify("Usuário foi atualizado com sucesso!", {className: 'success', globalPosition: 'top right'});
+    $('#name').val('');
+    $('#email').val('');
+    $('#password').val('');
+    $('#password_confirmation').val(''); 
+    $('#newCompanyUserModal').modal('hide');
+    $('#list_users').html("<%= escape_javascript(render('admin/companies/company_users_list')) %>")
+  <% end %>
+});

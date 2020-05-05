@@ -13,28 +13,37 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="/">
+    <li class="nav-item">    
+        <% if current_user %>
+          <%= link_to admin_root_path, class: "nav-link" do %>
             <i class="fas fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <li class="nav-item">
-        <%= link_to admin_companies_path, class: "nav-link" do %>
-          <i class="fas fa-store"></i>
-          <span>Empresas</span></a>
+            <span>Dashboard</span>
+          <% end %>
+        <% else %>
+          <%= link_to company_root_path, class: "nav-link" do %>
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          <% end %>
         <% end %>
     </li>
-    <li class="nav-item">
-        <%= link_to admin_categories_path, class: "nav-link" do %>
-          <i class="fas fa-fw fa-list"></i>
-          <span>Categorias</span></a>
-        <% end %>
-    </li>
+    
+    <% if current_user %>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
+        <li class="nav-item">
+            <%= link_to admin_companies_path, class: "nav-link" do %>
+              <i class="fas fa-store"></i>
+              <span>Empresas</span></a>
+            <% end %>
+        </li>
+        <li class="nav-item">
+            <%= link_to admin_categories_path, class: "nav-link" do %>
+              <i class="fas fa-fw fa-list"></i>
+              <span>Categorias</span></a>
+            <% end %>
+        </li>
+    <% end %>
     
 
     <!-- Divider -->

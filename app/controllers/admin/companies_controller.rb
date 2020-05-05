@@ -1,6 +1,7 @@
 class Admin::CompaniesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show]
 
   def index
   	if params[:q]
@@ -17,6 +18,10 @@ class Admin::CompaniesController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
 
   def edit
@@ -65,6 +70,10 @@ class Admin::CompaniesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
       params.require(:company).permit(:logo, :name, :fantasy_name, :email, :user_id, category_ids: [], company_categories_attributes: [:id, :company_id, :category_id, :_destroy])
+    end
+
+    def set_user
+      @company_user = CompanyUser.new
     end
 
 

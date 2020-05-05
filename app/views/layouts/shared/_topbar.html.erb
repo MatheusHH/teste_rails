@@ -8,6 +8,8 @@
     
     <% if current_user %>
       <div>Área Administrativa</div>
+    <% else %>
+      <div>Empresa: <%= current_company_user.company.name %></div>
     <% end %>
 
     <!-- Topbar Navbar -->
@@ -19,7 +21,13 @@
     <!-- Nav Item - User Information -->
     <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Administrador </span>
+        <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+        <% if current_user %>
+          Administrador 
+        <% else %>
+          <%= current_company_user.name %>  
+        <% end %>
+        </span>
         <%= image_tag  "/images/user.png", size: "60x60", class: "img-profile rounded-circle" %>
         </a>
         <!-- Dropdown - User Information -->

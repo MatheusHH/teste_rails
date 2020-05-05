@@ -1,0 +1,5 @@
+$(function () {
+  $('#list_users').html("<%= escape_javascript(render('admin/companies/company_users_list')) %>")
+  $.notify("Usuário deletado com sucesso", {className: 'success', globalPosition: 'top right'});
+  //window.location.reload();
+});

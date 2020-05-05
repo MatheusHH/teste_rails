@@ -1,0 +1,44 @@
+<div class="card shadow p-3 mb-5"> 
+  <div class="card-body">
+    <%= form_with(model: [:company, company_user], local: true) do |form| %>
+      <% if company_user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(company_user.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+          <ul>
+          <% company_user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+       <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <%= form.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= form.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <%= form.label :password_confirmation %><br />
+            <%= form.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Salvar", class: "btn btn-primary" %>
+        <%= link_to "Voltar", admin_categories_path, class: "btn btn-success" %>
+      </div> 
+    <% end %>
+  </div>
+</div>
+
