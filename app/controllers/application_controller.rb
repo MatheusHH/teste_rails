@@ -16,7 +16,11 @@ class ApplicationController < ActionController::Base
     if resource_name == :user 
       admin_root_path
     elsif resource_name == :company_user
-      company_root_path
+      if current_company_user.request_change_password?
+        edit_company_edit_password_path(current_company_user)
+      else
+        company_root_path
+      end
     end
   end
 

@@ -1,0 +1,6 @@
+$(function () {
+	$('h5.modal-title').text(' <%= @company_user.name %>');
+	$('#company_user_email').text('Meu Email: <%= @company_user.email %>');
+	$('#company_user_role').text('Minha Função: <%= @company_user.role %>');
+	$('#CompanyUserModal').modal();
+});

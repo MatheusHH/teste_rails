@@ -73,7 +73,7 @@ class Admin::CompaniesController < ApplicationController
     end
 
     def set_user
-      @company_user = CompanyUser.new
+      @company_user = CompanyUser.new if @company_user.nil?
     end
 
 

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     get 'home/index'
     root 'home#index'
 
+    resources :update_company_user, only: [:edit, :update]
+
     resources :categories
     resources :companies do
       resources :company_users

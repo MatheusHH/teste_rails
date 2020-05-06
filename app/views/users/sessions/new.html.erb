@@ -15,6 +15,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Área Administrativa</h1>
                   </div>
+                    <%= render 'layouts/shared/messages' %>
 
                     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "user"}) do |f| %>
                       <div class="form-group">

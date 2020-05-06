@@ -1,15 +1,16 @@
 <div class="card shadow p-3 mb-5"> 
   <div class="card-body">
-    <%= form_with(model: [:admin, category], local: true) do |form| %>
+    <%= form_with(model: [:admin, category], local: true, html: {class: "needs-validation", novalidate: true}) do |form| %>
       <% if category.errors.any? %>
-        <div id="error_explanation">
+        <div class="alert alert-alert" id="error_explanation">
+          <a href="#" data-dismiss="alert" class="close">×</a>
           <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
           <ul>
           <% category.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
-          </ul>
+          </ul> 
         </div>
       <% end %>
 
@@ -17,10 +18,9 @@
         <div class="form-group">
           <div class="col-lg-9">
             <%= form.label :image %>
-            <%= form.file_field :image, class: "form-control" %>
+            <%= form.file_field :image, class: "form-control", required: "required" %>
           </div>
-          <div class="col-lg-3">
-          </div>
+          
         </div>
       </div>
 
@@ -28,8 +28,9 @@
         <div class="col-sm-6">
           <div class="form-group">
             <%= form.label :name %>
-            <%= form.text_field :name, class: "form-control" %>
+            <%= form.text_field :name, class: "form-control", required: "required" %>
           </div>
+          
         </div>
       </div>
 
@@ -37,8 +38,9 @@
         <div class="col-sm-6">
           <div class="form-group">
             <%= form.label :tags %>
-            <%= form.text_field :tags, class: "form-control" %>
+            <%= form.text_field :tags, class: "form-control", required: "required" %>
           </div>
+          
         </div>
       </div>
 
@@ -46,7 +48,7 @@
         <div class="col-sm-6">
           <div class="form-group">
             <%= form.label :visible %>
-            <%= form.select :visible, Category.visibles.keys.to_a, {}, class: "form-control" %>
+            <%= form.select :visible, Category.visibles.keys.to_a, {}, class: "form-control", required: "required" %>
           </div>
         </div>
       </div>

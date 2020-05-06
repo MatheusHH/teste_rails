@@ -1,5 +1,5 @@
-class Company::EditPasswordController < ApplicationController
-  before_action :authenticate_company_user!
+class Admin::UpdateCompanyUserController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user
 
   def edit
@@ -8,7 +8,7 @@ class Company::EditPasswordController < ApplicationController
   def update 
   	respond_to do |format|
       if @company_user.update(company_user_params)
-        format.html { redirect_to company_root_url, notice: 'Senha Atualizada com Sucesso' }
+        format.html { redirect_to admin_company_path(@company_user.company_id), notice: 'Usuário Atualizado com Sucesso' }
         format.json { render :show, status: :ok, location: @company }
         bypass_sign_in @company_user, scope: :company_user
       else
@@ -25,7 +25,7 @@ class Company::EditPasswordController < ApplicationController
    end
 
    def company_user_params
-      params.require(:company_user).permit(:password, :password_confirmation)
+      params.require(:company_user).permit(:name, :email, :role, :password, :password_confirmation)
    end
 
 end

@@ -13,6 +13,7 @@ require("packs/mobile")
 require("packs/jquery-easing")
 require("packs/notify")
 require("packs/multiselect")
+require("packs/form_validation")
 
 import "bootstrap";
 import "./stylesheets/application.scss";

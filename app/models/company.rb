@@ -6,4 +6,6 @@ class Company < ApplicationRecord
   has_many :company_users, dependent: :destroy
 
   accepts_nested_attributes_for :company_categories, reject_if: :all_blank, allow_destroy: true
+
+  validates :email, :fantasy_name, :name, presence: true
 end
