@@ -7,7 +7,7 @@ class Company::EditPasswordController < ApplicationController
 
   def update 
   	respond_to do |format|
-      if @company_user.update(company_user_params)
+      if @company_user.update_with_password(company_user_params)
         format.html { redirect_to company_root_url, notice: 'Senha Atualizada com Sucesso' }
         format.json { render :show, status: :ok, location: @company }
         bypass_sign_in @company_user, scope: :company_user
@@ -25,7 +25,7 @@ class Company::EditPasswordController < ApplicationController
    end
 
    def company_user_params
-      params.require(:company_user).permit(:password, :password_confirmation)
+      params.require(:company_user).permit(:current_password, :password, :password_confirmation)
    end
 
 end

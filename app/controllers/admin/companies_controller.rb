@@ -6,10 +6,10 @@ class Admin::CompaniesController < ApplicationController
   def index
   	if params[:q]
       @q = Company.all.ransack(params[:q])
-      @companies = @q.result
+      @companies = @q.result.page(params[:page]).per(4)
     else
       @q = Company.none.ransack
-      @companies = Company.all
+      @companies = Company.all.page(params[:page]).per(4)
     end
   end
 

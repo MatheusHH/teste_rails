@@ -7,5 +7,7 @@ class Company < ApplicationRecord
 
   accepts_nested_attributes_for :company_categories, reject_if: :all_blank, allow_destroy: true
 
-  validates :email, :fantasy_name, :name, presence: true
+  validates :fantasy_name, presence: true
+  validates :name, length: { minimum: 6 }
+  validates :email, presence: true, format: Devise.email_regexp
 end

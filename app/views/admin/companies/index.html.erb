@@ -2,7 +2,7 @@
   <div class="card-header">
     <div class="row">
       <div class="col-lg-6">
-        <h4>Categorias</h4> 
+        <h4>Companhias</h4> 
       </div>
       <div class="col-lg-6 pull-right">
         <%= search_form_for @q, url: admin_companies_path, html: { method: :get } do |c| %>
@@ -48,8 +48,16 @@
     </div>
 
     <br>
+    <hr>
+    <div class=row>
+      <div class="col-lg-4 col-md-6 mb-4"></div>
+        <div class="col-lg-4 col-md-6 mb-4" id="pagination">
+          <%= paginate @companies %>
+        </div>
+      <div class="col-lg-4 col-md-6 mb-4"></div>
+    </div>
     <div class="card-footer">
-      <%= link_to "Nova Compania", new_admin_company_path, class: "btn btn-primary" %>
+      <%= link_to "Nova Companhia", new_admin_company_path, class: "btn btn-primary" %>
     </div>
   </div>
 

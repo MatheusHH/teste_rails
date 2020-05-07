@@ -57,7 +57,7 @@
         <div class="col-sm-6">
           <div class="form-group">
             <%= form.label :category %>
-            <%= form.select(:category_ids, Category.all.collect {|p| [ p.name, p.id ] }, {}, { class: "form-control", id: "multiselect", multiple: true  })%>
+            <%= form.select(:category_ids, Category.all.collect {|p| [ p.name, p.id ] }, {}, { class: "form-control", id: "multiselect", multiple: true, required: "required"  })%>
           </div>
         </div>
       </div>

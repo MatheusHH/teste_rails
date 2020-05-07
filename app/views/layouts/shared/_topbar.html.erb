@@ -35,9 +35,19 @@
         
         
         <div class="dropdown-divider"></div>
-       
-        <%= link_to destroy_user_session_path, class: "dropdown-item", method: :delete do %> 
-            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
+        <% if current_user %>
+            <%= link_to destroy_user_session_path, class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } do %> 
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
+            <% end %>
+        <% else %>
+          <%= link_to edit_company_edit_password_path(current_company_user), class: "dropdown-item" do %>
+             <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
+                Editar Senha
+          <% end %>
+          <div class="dropdown-divider"></div>
+          <%= link_to destroy_company_user_session_path, class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } do %> 
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
+            <% end %>
         <% end %>
         </div>
     </li>
@@ -46,3 +56,4 @@
 
 </nav>
 <!-- End of Topbar -->
+ 

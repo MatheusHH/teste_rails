@@ -20,6 +20,13 @@ Rails.application.routes.draw do
 
     resources :edit_password, only: [:edit, :update]
   end
+
+  namespace :api do 
+    namespace :v1 do
+      get 'companies/index'
+      get 'categories/index'
+    end
+  end
   # root seria necessário criar uma página para receber o tipo de user e redirecionar
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
