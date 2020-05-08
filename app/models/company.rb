@@ -1,7 +1,7 @@
 class Company < ApplicationRecord
   belongs_to :user
   has_one_attached :logo
-  has_many :company_categories
+  has_many :company_categories, dependent: :restrict_with_exception
   has_many :categories, through: :company_categories
   has_many :company_users, dependent: :destroy
 

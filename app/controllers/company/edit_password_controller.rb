@@ -8,7 +8,7 @@ class Company::EditPasswordController < ApplicationController
   def update 
   	respond_to do |format|
       if @company_user.update_with_password(company_user_params)
-        format.html { redirect_to company_root_url, notice: 'Senha Atualizada com Sucesso' }
+        format.html { redirect_to company_root_url, notice: t('flash.actions.update.notice', model: @company_user.model_name.human) }
         format.json { render :show, status: :ok, location: @company }
         bypass_sign_in @company_user, scope: :company_user
       else

@@ -2,7 +2,7 @@
   <div class="card-header">
     <div class="row">
       <div class="col-lg-6">
-        <h4>Companhias</h4> 
+        <h4><%= @companies.model_name.human(count: 2) %></h4> 
       </div>
       <div class="col-lg-6 pull-right">
         <%= search_form_for @q, url: admin_companies_path, html: { method: :get } do |c| %>
@@ -24,9 +24,9 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>Nome</th>
-            <th>Nome Fantasia</th>
-            <th>Email</th>
+            <th><%= @companies.human_attribute_name("name") %></th>
+            <th><%= @companies.human_attribute_name("fantasy_name") %></th>
+            <th><%= @companies.human_attribute_name("email") %></th>
             <th>#</th>
           </tr>
         </thead>
@@ -40,7 +40,7 @@
               <td><%= company.email %></td>
               <td><%= link_to edit_admin_company_path(company), class: "btn btn-info btn-circle" do %><i class="fa fa-edit"></i><% end %>
               <%= link_to admin_company_path(company), class: "btn btn-success btn-circle" do %><i class="fa fa-eye"></i><% end %>
-              <%= link_to admin_company_path(company), method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do  %> <i class="fa fa-trash"></i> <% end %></td>
+              <%= link_to admin_company_path(company), method: :delete, class: "btn btn-danger btn-circle", data: { confirm: t('confirm') } do  %> <i class="fa fa-trash"></i> <% end %></td>
             </tr>
           <% end %>
         </tbody>
@@ -57,7 +57,7 @@
       <div class="col-lg-4 col-md-6 mb-4"></div>
     </div>
     <div class="card-footer">
-      <%= link_to "Nova Companhia", new_admin_company_path, class: "btn btn-primary" %>
+      <%= link_to t('actions.new(a)', model: @companies.model_name.human), new_admin_company_path, class: "btn btn-primary" %>
     </div>
   </div>
 

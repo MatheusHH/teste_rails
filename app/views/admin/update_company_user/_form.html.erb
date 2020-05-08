@@ -4,12 +4,12 @@
       <% if company_user.errors.any? %>
         <div class="alert alert-alert" id="error_explanation">
           <a href="#" data-dismiss="alert" class="close">×</a>
-          <h2><%= pluralize(company_user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <h2><%= t('activerecord.errors.not_saved', model: company_user.model_name.human, :count => company_user.errors.count) %></h2>
 
           <ul>
           <% company_user.errors.full_messages.each do |message| %>
             <li><%= message %></li>
-          <% end %>
+          <% end %> 
           </ul>
         </div>
       <% end %>

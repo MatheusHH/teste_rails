@@ -8,7 +8,7 @@ class Admin::UpdateCompanyUserController < ApplicationController
   def update 
   	respond_to do |format|
       if @company_user.update(company_user_params)
-        format.html { redirect_to admin_company_path(@company_user.company_id), notice: 'Usuário Atualizado com Sucesso' }
+        format.html { redirect_to admin_company_path(@company_user.company_id), notice: t('flash.actions.update.notice', model: @company_user.model_name.human) }
         format.json { render :show, status: :ok, location: @company }
         bypass_sign_in @company_user, scope: :company_user
       else

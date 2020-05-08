@@ -22,7 +22,7 @@ class Admin::CompanyUsersController < ApplicationController
 
     respond_to do |format|
       if @company_user.save  
-        format.html { redirect_to admin_company_path(@company), notice: 'Usuário criado com sucesso.' }
+        format.html { redirect_to admin_company_path(@company), notice: t('flash.actions.create.notice', model: @company_user.model_name.human) }
         format.json { render :show, status: :created, location: @company_user }
         format.js {}
       else
@@ -36,7 +36,7 @@ class Admin::CompanyUsersController < ApplicationController
   def update
   	respond_to do |format|
       if @company_user.update(company_user_params)
-        format.html { redirect_to admin_company_path(@company), notice: 'Usuário atualizado com sucesso.' }
+        format.html { redirect_to admin_company_path(@company), notice: t('flash.actions.update.notice', model: @company_user.model_name.human) }
         format.json { render :show, status: :ok, location: @company_user }
         format.js {}
       else
@@ -50,7 +50,7 @@ class Admin::CompanyUsersController < ApplicationController
   def destroy
   	@company_user.destroy
      respond_to do |format|
-      format.html { redirect_to admin_company_path(@company), notice: 'Usuário deletado com sucesso.' }
+      format.html { redirect_to admin_company_path(@company), notice: t('flash.actions.destroy.notice') }
       format.json { head :no_content }
       format.js {}
     end

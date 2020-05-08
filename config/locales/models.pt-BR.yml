@@ -1,0 +1,42 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+      category: 
+        one: Categoria
+        other: Categorias
+      company: 
+        one: Companhia
+        other: Companhias
+      company_user:
+        one: Usuário da Companhia
+        other: Usuários da Companhia
+      
+
+    attributes:
+      user:
+        name: Nome
+        email: Email
+        role: Tipo de Usuário
+      company:
+        name: Nome
+        fantasy_name: Nome Fantasia
+        email: Email
+        categories: Categorias
+      company_user:
+        name: Nome
+        email: Email
+        role: Função
+        password: Nova Senha
+        current_password: Senha Atual
+        password_confirmation: Confirma senha
+      category: 
+        name: Nome
+        tags: Tags
+        visible: Visibilidate
+        image: Imagem
+
+      
+

@@ -21,19 +21,19 @@ class Admin::CategoriesController < ApplicationController
     @category.user = current_user
     respond_to do |format|
       if @category.save
-        format.html { redirect_to admin_categories_url, notice: 'Categoria Criada com Sucesso' }
+        format.html { redirect_to admin_categories_url, notice: t('flash.actions.create.notice(a)', model: @category.model_name.human) }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end 
 
   def update
   	respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to admin_categories_url, notice: 'Categoria Atualizada com Sucesso' }
+        format.html { redirect_to admin_categories_url, notice: t('flash.actions.update.notice(a)', model: @category.model_name.human) }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit }
@@ -45,7 +45,7 @@ class Admin::CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to admin_categories_url, notice: 'Categoria deletada com sucesso' }
+      format.html { redirect_to admin_categories_url, notice: t('flash.actions.destroy.notice') }
       format.json { head :no_content }
     end
   end

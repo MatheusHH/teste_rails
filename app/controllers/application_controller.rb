@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
+  rescue_from ActiveRecord::DeleteRestrictionError, with: :impossible_to_delete
+
   private
 
   def layout_by_resource
@@ -30,6 +32,11 @@ class ApplicationController < ActionController::Base
     elsif resource_or_scope == :company_user
       new_company_user_session_path
     end
+  end
+
+  def impossible_to_delete
+    flash[:alert] = t("flash.impossible_to_delete")
+    redirect_to(request.referrer || root_path)
   end
   
 end

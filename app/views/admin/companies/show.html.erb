@@ -2,12 +2,12 @@
   <div class="card-header">Companhia </div>
   <div class="card-body">
     <p>
-      <strong>Nome:</strong>
+      <strong><%= Company.human_attribute_name("name") %>:</strong>
       <%= @company.name %>
     </p>
 
     <p>
-      <strong>Nome Fantasia</strong>
+      <strong><%= Company.human_attribute_name("fantasy_name") %></strong>
       <%= @company.fantasy_name %>
     </p>
 
@@ -18,19 +18,11 @@
     </p>
 
     <p>
-      <strong>Email:</strong>
+      <strong><%= Company.human_attribute_name("email") %>:</strong>
       <%= @company.email %>
     </p>
     
-    <div class="card-footer">
-    <div class="actions">
-      <%= link_to admin_companies_path, class: "btn btn-info btn-icon-split btn-sm" do %>
-          <i class="fas fa-backward"></i>
-          <span class="text"> Voltar</span>
-        <% end %>
-    </div>
-    </div>
-  </div>
+  </div> 
 </div> 
 
 <div class="card shadow p-3 mb-5">
@@ -42,6 +34,9 @@
   </div>
   <div class="card-footer">
     <%= link_to "Novo Usuário", new_admin_company_company_user_path(@company), remote: true, class: "btn btn-primary" %>
+    <%= link_to admin_companies_path, class: "btn btn-info btn-icon-split btn-sm" do %>
+      <span class="text"> <%= t('actions.back')%></span>
+    <% end %>
   </div>
 </div> 
 
