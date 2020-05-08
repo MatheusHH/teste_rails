@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Instruções para rodar o projeto
 
-Things you may want to cover:
+* Necessário ter o docker/docker compose instalado
 
-* Ruby version
+1- git clone do repositório
+2- docker-compose build
+3- Adicione um User.create(email, password, confirm_password)
+4- docker-compose run --rm app bundle install
+5- docker-compose run --rm app bundle exec rails db:create db:migrate db:seed
 
-* System dependencies
 
-* Configuration
+Descrição do Sistema
 
-* Database creation
+Sistema administrativo com parte administrativa onde possui as seguintes funções:
+Manter categorias
+Manter empresas
+Manter usuários das empresas(adicionando quando acessa uma empresa especifica)
 
-* Database initialization
+A parte da empresa possui um dashboard onde futuramente poderá manter seus recursos:
 
-* How to run the test suite
+Endpoints para listagem de categorias e empresas, este último com possibilidade de filtro por nome da empresa ou categoria.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
