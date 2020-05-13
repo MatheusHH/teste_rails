@@ -9,7 +9,7 @@ class CompanyUser < ApplicationRecord
 
   validates :name, :role, presence: true
 
-  before_update :update_request_change_password
+  after_update :update_request_change_password
 
 
   private
