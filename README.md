@@ -13,16 +13,16 @@
 
 **Descrição do Sistema** <br/>
 
-Sistema administrativo com parte administrativa onde possui as seguintes funções:<br/>
-Manter categorias <br/>
-Manter empresas <br/>
-Manter usuários das empresas(adicionando quando acessa uma empresa especifica) <br/>
+<p>Sistema administrativo com parte administrativa onde possui as seguintes funções:<p/>
+<p>Manter categorias <br/>
+<p>Manter empresas <br/>
+<p>Manter usuários das empresas(adicionando quando acessa uma empresa especifica) <p/>
 
-A parte da empresa possui um dashboard onde futuramente poderá manter seus recursos: <br/>
+<p>A parte da empresa possui um dashboard onde futuramente poderá manter seus recursos: <ṕ/>
 
-Endpoints para listagem de categorias e empresas, este último com possibilidade de filtro por nome da empresa ou categoria. <br />
+<p>Endpoints para listagem de categorias e empresas, este último com possibilidade de filtro por nome da empresa ou categoria. <p />
 
-**Tecnologias utilizadas** <br/ >
+**Tecnologias utilizadas** 
 
 * Ruby 2.6 <br/ >
 * Rails 6.0 <br/ >
