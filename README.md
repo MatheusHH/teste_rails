@@ -2,23 +2,23 @@
 
 Instruções para rodar o projeto
 
-* Necessário ter o docker/docker compose instalado
+* Necessário ter o docker/docker compose instalado <br/>
 
-1- git clone do repositório
-2- docker-compose build
-3- Adicione um User.create(email, password, confirm_password)
-4- docker-compose run --rm app bundle install
-5- docker-compose run --rm app bundle exec rails db:create db:migrate db:seed
+1- git clone do repositório <br/>
+2- docker-compose build <br/>
+3- Adicione um User.create(email, password, confirm_password) <br/>
+4- docker-compose run --rm app bundle install <br/>
+5- docker-compose run --rm app bundle exec rails db:create db:migrate db:seed <br/>
 
 
-Descrição do Sistema
+Descrição do Sistema <br/>
 
-Sistema administrativo com parte administrativa onde possui as seguintes funções:
-Manter categorias
-Manter empresas
-Manter usuários das empresas(adicionando quando acessa uma empresa especifica)
+Sistema administrativo com parte administrativa onde possui as seguintes funções: <br/>
+Manter categorias <br/>
+Manter empresas <br/>
+Manter usuários das empresas(adicionando quando acessa uma empresa especifica) <br/>
 
-A parte da empresa possui um dashboard onde futuramente poderá manter seus recursos:
+A parte da empresa possui um dashboard onde futuramente poderá manter seus recursos: <br/>
 
 Endpoints para listagem de categorias e empresas, este último com possibilidade de filtro por nome da empresa ou categoria.
 
