@@ -28,7 +28,7 @@
 
 * Ruby 2.6 
 * Rails 6.0 
-* Bootstrap 
+* Bootstrap 4
 * Select2 js 
 * Ajax 
 * Notify js 
